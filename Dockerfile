@@ -7,7 +7,6 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install gettext-base nodejs
 
-USER ftuser
 COPY requirements.txt /freqtrade/requirements.txt
 RUN pip install --user -r /freqtrade/requirements.txt
 RUN jupyter labextension install jupyterlab-plotly
@@ -18,3 +17,5 @@ COPY Procfile /freqtrade/Procfile
 COPY user_data /freqtrade/user_data
 
 ENTRYPOINT ["./load_env.sh"]
+
+USER ftuser
