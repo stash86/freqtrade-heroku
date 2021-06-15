@@ -10,8 +10,8 @@ build:
     web: Dockerfile
 
 run:
-    web: freqtrade trade --config live.json --strategy $LIVE_STRATEGY --db-url $LIVE_DATABASE_URL
+    web: freqtrade trade --config config.json --config live.json --strategy $LIVE_STRATEGY --db-url $LIVE_DATABASE_URL
     dry:
         command:
-          - freqtrade trade --config dry.json --strategy $DRY_STRATEGY --db-url $DRY_DATABASE_URL
+          - freqtrade trade --config config.json --config dry.json --strategy $DRY_STRATEGY --db-url $DRY_DATABASE_URL
         image: web
